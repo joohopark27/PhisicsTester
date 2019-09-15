@@ -4,6 +4,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import main.java.joohopark.util.Clock;
 import main.java.joohopark.util.Position;
+import main.java.joohopark.util.Values;
 
 import java.util.ArrayList;
 
@@ -52,7 +53,7 @@ public class Trace extends Element {
     public void draw(GraphicsContext gc) {
 
         gc.setFill(Color.RED);
-        positions.forEach(pos -> gc.fillOval(pos.getX()- 3, pos.getY() - 3, 6, 6));
+        positions.forEach(pos -> gc.fillOval(Values.Coordinates.CENTER_X + pos.getX()- 3, Values.Coordinates.CENTER_Y - pos.getY() - 3, 6, 6));
 
     }
 }

@@ -2,6 +2,7 @@ package main.java.joohopark.element;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import main.java.joohopark.util.Values;
 import main.java.joohopark.util.Vector;
 
 public class ObjectRectangle extends Element {
@@ -32,7 +33,7 @@ public class ObjectRectangle extends Element {
     public void draw(GraphicsContext gc) {
 
         gc.setFill(Color.BLACK);
-        gc.fillRect(x - w/2D, y - h/2D, w, h);
+        gc.fillRect(Values.Coordinates.CENTER_X + x - w/2D, Values.Coordinates.CENTER_Y - y - h/2D, w, h);
 
     }
 }
