@@ -4,6 +4,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -12,6 +13,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 import javafx.stage.Stage;
+import main.java.joohopark.Main;
+import main.java.joohopark.util.Clock;
 import main.java.joohopark.util.Values;
 
 public class Screen {
@@ -25,8 +28,8 @@ public class Screen {
 
         this.screen = stage;
 
+        canvas = new Canvas(Values.Screen.MAIN_SCREEN_WIDTH, Values.Screen.CANVAS_HEIGHT);
         gc = canvas.getGraphicsContext2D();
-        canvas = new Canvas(Values.Screen.MAIN_SCREEN_WIDTH, Values.Screen.MAIN_SCREEN_HEIGHT);
 
         menuBar = new MenuBar();
         Menu edit = new Menu("edit");
@@ -37,9 +40,15 @@ public class Screen {
         menuBar.getMenus().add(edit);
         edit.getItems().add(editRect);
 
+        Button pause = new Button("pause/resume");
+        pause.setOnAction(e -> Clock.pause());
+        pause.setPrefWidth(150);
+        pause.setPrefHeight(Values.Screen.BUTTON_HEIGHT);
+
         VBox root = new VBox(menuBar);
         root.setPrefSize(Values.Screen.MAIN_SCREEN_WIDTH, Values.Screen.MAIN_SCREEN_HEIGHT);
-        root.getChildren().addAll(canvas);
+        root.getChildren().add(canvas);
+        root.getChildren().add(pause);
 
         stage.setTitle("Tester");
         stage.setScene(new Scene(root, Values.Screen.MAIN_SCREEN_WIDTH, Values.Screen.MAIN_SCREEN_HEIGHT));

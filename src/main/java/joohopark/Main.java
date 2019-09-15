@@ -1,5 +1,6 @@
 package main.java.joohopark;
 
+import javafx.scene.chart.ValueAxis;
 import javafx.scene.paint.Color;
 import main.java.joohopark.element.Element;
 import main.java.joohopark.element.ObjectRectangle;
@@ -8,6 +9,7 @@ import main.java.joohopark.screen.Screen;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import main.java.joohopark.util.Clock;
+import main.java.joohopark.util.Values;
 
 import java.util.ArrayList;
 
@@ -15,7 +17,6 @@ public class Main extends Application implements Runnable{
 
     private static boolean isRunning;
 
-    public static Clock clock;
     static Screen screen;
     ArrayList<Element> elements;
     Thread thread;
@@ -41,7 +42,7 @@ public class Main extends Application implements Runnable{
             e.printStackTrace();
         }
 
-        clock = new Clock();
+        Clock.reset();
         elements = new ArrayList<>();
 
         Element rect = new ObjectRectangle();
@@ -57,7 +58,7 @@ public class Main extends Application implements Runnable{
         initialize();
 
         while(isRunning){
-            if(clock.timer()) {
+            if(Clock.timer()) {
                 tick();
                 render();
             }
@@ -75,7 +76,7 @@ public class Main extends Application implements Runnable{
 
     private void render(){
 
-        screen.getGraphicsContext().clearRect(0, 0, 800, 450);
+        screen.getGraphicsContext().clearRect(0, 0, Values.Screen.MAIN_SCREEN_WIDTH, Values.Screen.CANVAS_HEIGHT);
 
         elements.forEach(element -> element.draw(screen.getGraphicsContext()));
 
@@ -99,11 +100,11 @@ public class Main extends Application implements Runnable{
             return;
         }
         isRunning = false;
-        try {
-            thread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            thread.join();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 
 }

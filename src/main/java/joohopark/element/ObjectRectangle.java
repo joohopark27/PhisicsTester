@@ -11,7 +11,7 @@ public class ObjectRectangle extends Element {
 
     public ObjectRectangle(int w, int h){
 
-        super(0, 0, 10, new Vector(100, 0), new Vector(0, 25));
+        super(0, -200, 10, new Vector(200, 150), new Vector(-75, -54));
 
         this.w = w;
         this.h = h;

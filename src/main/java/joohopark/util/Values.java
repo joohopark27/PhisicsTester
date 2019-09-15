@@ -4,8 +4,10 @@ public class Values {
 
     public class Screen{
 
-        public static final int MAIN_SCREEN_WIDTH = 800;
-        public static final int MAIN_SCREEN_HEIGHT = 450;
+        public static final int MAIN_SCREEN_WIDTH = 1200;
+        public static final int MAIN_SCREEN_HEIGHT = 520;
+        public static final int BUTTON_HEIGHT = 20;
+        public static final int CANVAS_HEIGHT = MAIN_SCREEN_HEIGHT - BUTTON_HEIGHT - 30;
 
     }
 

@@ -2,23 +2,25 @@ package main.java.joohopark.util;
 
 public class Clock {
 
-    private int ticks;
-    private long lastUpdate,
+    private static int ticks;
+    private static long lastUpdate,
             now,
             lastTimer;
-    private double delta;
-    private static double nsPerTick = 1000000000D / 60D;
+    private static double delta;
+    private static final double nsPerTick = 1000000000D / 60D;
+    private static boolean isPaused;
 
-    public Clock(){
+    public static void reset(){
 
         ticks = 0;
         lastUpdate = System.nanoTime();
         lastTimer = System.currentTimeMillis();
         delta = 0f;
+        isPaused = false;
 
     }
 
-    public boolean timer(){
+    public static boolean timer(){
 
         now = System.nanoTime();
         delta += (now - lastUpdate) / nsPerTick;
@@ -41,12 +43,24 @@ public class Clock {
         return shouldRender;
     }
 
-    private void tick(){
+    private static void tick(){
         ticks++;
     }
 
     public static long getTime(){
         return (System.nanoTime());
+    }
+
+    public static boolean isPaused(){
+
+        return isPaused;
+
+    }
+
+    public static void pause(){
+
+        isPaused = !isPaused;
+
     }
 
 }

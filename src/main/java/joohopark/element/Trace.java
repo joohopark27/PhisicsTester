@@ -42,8 +42,10 @@ public class Trace extends Element {
     void updateTime() {
 
         long now = Clock.getTime();
-        deltaT = now - time;
-        timeSinceLastRecord += deltaT;
+        if(!Clock.isPaused()) {
+            deltaT = now - time;
+            timeSinceLastRecord += deltaT;
+        }
         time = now;
 
 

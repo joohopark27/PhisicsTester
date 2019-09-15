@@ -60,7 +60,7 @@ public abstract class Element {
     void updateTime(){
 
         long now = Clock.getTime();
-        deltaT = now - time;
+        deltaT = (!Clock.isPaused()) ? now - time : 0;
         time = now;
 
     }
