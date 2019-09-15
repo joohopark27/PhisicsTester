@@ -1,4 +1,4 @@
-package element;
+package main.java.joohopark.element;
 
 import javafx.scene.canvas.GraphicsContext;
 

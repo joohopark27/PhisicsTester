@@ -1,4 +1,4 @@
-package screen;
+package main.java.joohopark.screen;
 
 public class Controller {
 

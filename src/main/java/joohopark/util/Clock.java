@@ -1,8 +1,8 @@
+package main.java.joohopark.util;
+
 public class Clock {
 
-    private int ticks,
-            lastFall,
-            lastInput;
+    private int ticks;
     private long lastUpdate,
             now,
             lastTimer;
@@ -12,8 +12,6 @@ public class Clock {
     public Clock(){
 
         ticks = 0;
-        lastFall = 0;
-        lastInput = 0;
         lastUpdate = System.nanoTime();
         lastTimer = System.currentTimeMillis();
         delta = 0f;
@@ -28,11 +26,6 @@ public class Clock {
         boolean shouldRender = false;
 
         if(delta >= 1){
-            lastInput--;
-            if(lastInput < 0){
-                lastInput = 0;
-            }
-            lastFall++;
             tick();
             delta--;
             shouldRender = true;

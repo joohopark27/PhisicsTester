@@ -1,14 +1,17 @@
-import screen.Screen;
+package main.java.joohopark;
+
+import main.java.joohopark.screen.Screen;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import main.java.joohopark.util.Clock;
 
 public class Main extends Application implements Runnable{
 
     private boolean isRunning;
 
     static Thread thread;
+    static Clock clock;
     Screen screen;
-    Clock clock;
 
     @Override
     public void start(Stage primaryStage) throws Exception{

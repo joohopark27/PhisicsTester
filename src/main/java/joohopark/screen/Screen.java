@@ -1,14 +1,10 @@
-package screen;
+package main.java.joohopark.screen;
 
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.canvas.Canvas;
 import javafx.stage.Stage;
-
-import java.awt.*;
 
 public class Screen {
 
