@@ -18,7 +18,7 @@ public class Main extends Application implements Runnable{
     private static boolean isRunning;
 
     static Screen screen;
-    ArrayList<Element> elements;
+    public static ArrayList<Element> elements;
     Thread thread;
 
     public static void main(String[] args) {

@@ -27,6 +27,12 @@ public class Trace extends Element {
 
     }
 
+    public void clear(){
+
+        positions.clear();
+
+    }
+
     @Override
     public void tick() {
 

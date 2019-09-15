@@ -1,6 +1,5 @@
 package main.java.joohopark.screen;
 
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.canvas.Canvas;
@@ -8,10 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.ArcType;
 import javafx.stage.Stage;
 import main.java.joohopark.Main;
 import main.java.joohopark.util.Clock;
@@ -35,13 +31,14 @@ public class Screen {
         Menu edit = new Menu("edit");
         MenuItem editRect = new MenuItem("edit rectangle val");
         editRect.setOnAction(e -> {
-
+            Clock.pause();
+            new EditRectVal(Main.elements.get(0));
         });
         menuBar.getMenus().add(edit);
         edit.getItems().add(editRect);
 
         Button pause = new Button("pause/resume");
-        pause.setOnAction(e -> Clock.pause());
+        pause.setOnAction(e -> Clock.togglePause());
         pause.setPrefWidth(150);
         pause.setPrefHeight(Values.Screen.BUTTON_HEIGHT);
 

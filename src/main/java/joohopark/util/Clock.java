@@ -16,7 +16,7 @@ public class Clock {
         lastUpdate = System.nanoTime();
         lastTimer = System.currentTimeMillis();
         delta = 0f;
-        isPaused = false;
+        isPaused = true;
 
     }
 
@@ -57,9 +57,16 @@ public class Clock {
 
     }
 
-    public static void pause(){
+    public static void togglePause(){
 
         isPaused = !isPaused;
+
+    }
+
+
+    public static void pause(){
+
+        isPaused = true;
 
     }
 

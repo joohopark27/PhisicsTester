@@ -65,6 +65,22 @@ public abstract class Element {
 
     }
 
+    public void setX(double x){
+        this.x = x;
+    }
+
+    public void setY(double y){
+        this.y = y;
+    }
+
+    public void setV(Vector v){
+        this.v = v;
+    }
+
+    public void setA(Vector v){
+        this.a = v;
+    }
+
     public abstract void tick();
     public abstract void draw(GraphicsContext gc);
 
