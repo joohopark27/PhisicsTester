@@ -3,6 +3,7 @@ package main.java.joohopark;
 import javafx.scene.paint.Color;
 import main.java.joohopark.element.Element;
 import main.java.joohopark.element.ObjectRectangle;
+import main.java.joohopark.element.Trace;
 import main.java.joohopark.screen.Screen;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -44,7 +45,9 @@ public class Main extends Application implements Runnable{
         elements = new ArrayList<>();
 
         Element rect = new ObjectRectangle();
+        Element rectTrace = new Trace(rect);
         elements.add(rect);
+        elements.add(rectTrace);
 
     }
 

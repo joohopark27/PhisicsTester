@@ -1,18 +1,24 @@
 package main.java.joohopark.element;
 
 import javafx.scene.canvas.GraphicsContext;
+import main.java.joohopark.Main;
+import main.java.joohopark.util.Clock;
 import main.java.joohopark.util.Vector;
-
-import static main.java.joohopark.Main.clock;
 
 public abstract class Element {
 
     double x, y;
     double mass;
+    long time, deltaT;
+
     Vector v;
     Vector a;
 
-    long time, deltaT;
+    Element(){
+
+        this(0, 0, 0, new Vector(0, 0), new Vector(0, 0));
+
+    }
 
     Element(double x, double y, double mass, Vector v, Vector a){
 
@@ -22,7 +28,7 @@ public abstract class Element {
         this.v = v;
         this.a = a;
 
-        time = clock.getTime();
+        time = Clock.getTime();
 
     }
 
@@ -34,7 +40,7 @@ public abstract class Element {
 
     }
 
-    private final void move(){
+    final void move(){
 
         Vector v = new Vector(this.v);
         v.multiply(deltaT / 1000000000D);
@@ -43,7 +49,7 @@ public abstract class Element {
 
     }
 
-    private final void accel(){
+    final void accel(){
 
         Vector a = new Vector(this.a);
         a.multiply(deltaT / 1000000000D);
@@ -51,9 +57,9 @@ public abstract class Element {
 
     }
 
-    private final void updateTime(){
+    void updateTime(){
 
-        long now = clock.getTime();
+        long now = Clock.getTime();
         deltaT = now - time;
         time = now;
 

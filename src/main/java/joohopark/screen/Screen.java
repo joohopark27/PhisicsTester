@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 import javafx.stage.Stage;
@@ -23,7 +24,7 @@ public class Screen {
         gc = canvas.getGraphicsContext2D();
 
 
-        Pane root = new Pane();
+        VBox root = new VBox();
         root.setPrefSize(800, 450);
 //        Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
         root.getChildren().addAll(canvas);
